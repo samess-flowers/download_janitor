@@ -28,7 +28,7 @@ pushd ${0%/*}
 
 if [[ -d "$script_dir" ]]; then
     echo "$script_dir exists and is a directory"
-    echo $script_dir
+    echo "Deploying script to $script_dir"
     cp download_janitor.sh "$script_dir"
 elif [[ ! -e "$script_dir" ]]; then
     echo "$script_dir does not exist and will be created"
@@ -63,7 +63,8 @@ else
 fi
 
 #load the launch agent
-launchctl load "$plist_dir/me.samess.download_janitor"
+launchctl load "/Users/$USER/Library/LaunchAgents/me.samess.download_janitor.plist"
+echo "/Users/$USER/Library/LaunchAgents/me.samess.download_janitor.plist"
 
 # return to the directory we we came from originally
 popd
