@@ -63,8 +63,9 @@ else
 fi
 
 #load the launch agent
-launchctl load "/Users/$USER/Library/LaunchAgents/me.samess.download_janitor.plist"
-echo "/Users/$USER/Library/LaunchAgents/me.samess.download_janitor.plist"
+launchctl load "/Users/$USER/Library/LaunchAgents/me.samess.download_janitor.plist" 2> /dev/null
+launchctl load "/Users/$USER/Library/LaunchAgents/me.samess.download_janitor.plist" 2> /dev/null
+echo "loaded /Users/$USER/Library/LaunchAgents/me.samess.download_janitor.plist"
 
 # return to the directory we we came from originally
 popd
