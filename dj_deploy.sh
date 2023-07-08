@@ -46,13 +46,13 @@ fi
 
 if [[ -d "$plist_dir" ]]; then
     echo "$plist_dir exists and is a directory"
-    cp download_janitor.plist "$plist_dir"
+    cp me.samess.download_janitor.plist "$plist_dir"
     echo "Deploying plist to $plist_dir"
 elif [[ ! -e "$plist_dir" ]]; then
     echo "$plist_dir does not exist and will be created"
     mkdir "$plist_dir"
     echo "Deploying plist to $plist_dir"
-    cp download_janitor.plist "$plist_dir"
+    cp me.samess.download_janitor.plist "$plist_dir"
 elif [[ -e "$plist_dir" ]]; then
     echo "$plist_dir exists, but is not a directory"
     echo "Please fix before attempting to run again"
@@ -61,6 +61,9 @@ else
     echo 'An unexpected error occurred when trying to deploy the plist'
     exit 99
 fi
+
+#load the launch agent
+launchctl load "$plist_dir/me.samess.download_janitor"
 
 # return to the directory we we came from originally
 popd
