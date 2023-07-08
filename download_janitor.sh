@@ -11,14 +11,18 @@ touch -t "$thirtydays" "/Users/$USER/Downloads/$thirtydays"
 if [[ ! -e "/Users/$USER/Downloads/old" ]]; then
     mkdir "/Users/$USER/Downloads/old"
 fi
-for file in $( ls /Users/$USER/Downloads/ ); do
+cd "/Users/$USER/Downloads/"
+for file in *; do
+    echo "$file"
     if [[ "/Users/$USER/Downloads/$sevendays" -nt "$file" ]]; then
-        mv "$file" "/Users/$USER/Downloads/old/"
+        echo "$file is older"
+        #mv "$file" "/Users/$USER/Downloads/old/"
     fi
 done
-for file in $( ls /Users/$USER/Downloads/old ); do
+cd "/Users/$USER/Downloads/old"
+for file in *; do
     if [[ "/Users/$USER/Downloads/$thirtydays" -nt "$file" ]]; then
-        mv "/Users/$USER/Downloads/$file" "/Users/$USER/.Trash"
+        #mv "/Users/$USER/Downloads/$file" "/Users/$USER/.Trash"
     fi
 done
 } always {
