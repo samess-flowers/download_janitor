@@ -34,4 +34,3 @@ fi
     $( rm "/tmp/$sevendays" )
     $( rm "/tmp/$thirtydays" )
 }
-say "run successful"

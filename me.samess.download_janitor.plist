@@ -10,5 +10,9 @@
 		<true/>
 		<key>StartInterval</key>
 		<integer>600</integer>
+		<key>StandardOutPath</key>
+		<string>/tmp/download_janitor.stdout</string>
+		<key>StandardErrorPath</key>
+		<string>/tmp/download_janitor.stderr</string>
 	</dict>
 </plist>`
