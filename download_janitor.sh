@@ -7,7 +7,7 @@ touch "/tmp/$sevendays"
 touch "/tmp/$thirtydays"
 touch -t "$sevendays" "/tmp/$sevendays"
 touch -t "$thirtydays" "/tmp/$thirtydays"
-{
+
 if [[ ! -e "/Users/$USER/Downloads/.old" ]]; then
     mkdir "/Users/$USER/Downloads/.old"
 fi
@@ -30,7 +30,5 @@ if [[ $( ! find "/Users/$USER/Downloads/.old" -maxdepth 0 -empty -exec true \; )
         fi
     done
 fi
-} always {
-    $( rm "/tmp/$sevendays" )
-    $( rm "/tmp/$thirtydays" )
-}
+rm "/tmp/$sevendays"
+rm "/tmp/$thirtydays"
