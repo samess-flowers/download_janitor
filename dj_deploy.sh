@@ -5,16 +5,10 @@
 #  ██  ██  ██   ██ ██   ██ ██ ██   ██ ██   ██ ██      ██           ██    
 #   ████   ██   ██ ██   ██ ██ ██   ██ ██████  ███████ ███████ ███████ ██
 
-if [[ -n "$1" ]]; then
-    readonly script_dir="$1"
-else 
-    readonly script_dir='/Users/Shared/Scripts/'
-fi
-if [[ -n "$2" ]]; then
-    readonly plist_dir="$2"
-else
-    readonly plist_dir="/Users/$USER/Library/LaunchAgents/"
-fi
+set -euo pipefail
+
+readonly script_dir='/Users/Shared/Scripts/'
+readonly plist_dir="/Users/$USER/Library/LaunchAgents/"
 
 # ████████ ██   ██ ███████      ██████  ██████  ██████  ███████ ██ 
 #    ██    ██   ██ ██          ██      ██    ██ ██   ██ ██      ██ 
