@@ -15,4 +15,4 @@
 		<key>StandardErrorPath</key>
 		<string>/tmp/download_janitor.stderr</string>
 	</dict>
-</plist>`
+</plist>
