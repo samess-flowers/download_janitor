@@ -1,11 +1,8 @@
 #!/bin/zsh
-set -euxo pipefail
+set -euo pipefail
 
-
+set glob
 log="/tmp/dj.log"
-function writelog() {
-    echo "$(date +"%Y-%m-%dT%H:%M:%S%z") - $1" >> $log
-}
 
 echo "$(date +"%Y-%m-%dT%H:%M:%S%z") - starting program" >> $log
 sevendays=$( date -v-7d "+%m%d%H%M" )
@@ -21,7 +18,9 @@ if [[ ! -e "/Users/$USER/Downloads/.old" ]]; then
 fi
 echo "$(date +"%Y-%m-%dT%H:%M:%S%z") - checking downloads" >> $log
 cd "/Users/$USER/Downloads/"
-for file in *; do
+echo "$(date +"%Y-%m-%dT%H:%M:%S%z") - changing dir" >> $log
+for file in *; do #for some reason this is broken and I don't know why
+    echo "$(date +"%Y-%m-%dT%H:%M:%S%z") - checking $file" >> $log
     if [[ "/tmp/$sevendays" -nt "$file" ]]; then
         echo "$(date +"%Y-%m-%dT%H:%M:%S%z") - $file is more than seven days old" >> $log
         mv -- "$file" "/Users/$USER/Downloads/.old/"
