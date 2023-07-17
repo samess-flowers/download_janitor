@@ -1,7 +1,6 @@
 #!/bin/zsh
 set -euo pipefail
 
-set glob
 log="/tmp/dj.log"
 
 echo "$(date +"%Y-%m-%dT%H:%M:%S%z") - starting program" >> $log
